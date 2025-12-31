@@ -1,0 +1,80 @@
+
+$gold-accent: #c5a059;  // Electroless Gold Plating
+$blue-accent: #007aff;  // Silicon Photonic Blue
+$wafer-silver: #e2e8f0;
+
+$dark-pure: #0a0b0d;     // Deep Space
+$dark-surface: #121418;  // Tech Slate
+$dark-elevated: #1c1f26; // Circuitry Gray
+
+$light-pure: #ffffff;
+$light-surface: #f7f9fc; // ISO Class 1 Cleanroom White
+$light-elevated: #edf2f7;
+
+:root {
+    // Backgrounds
+    --bg-1: #{$dark-pure}; 
+    --bg-2: #{$dark-surface};
+    --bg-3: #{$dark-elevated};
+
+    // Typography
+    --text-1: #f1f3f5;
+    --text-2: #adb5bd;
+    --text-3: #6c757d;
+
+    // Navigation (Silicon Dark)
+    --nav-bg: rgba(10, 11, 13, 0.85);
+    --nav-text: #adb5bd;
+    --nav-hover: #ffffff;
+    --nav-active: #{$gold-accent};
+
+    // Buttons (Precision Gold)
+    --button-bg-1: #{$gold-accent};
+    --button-bg-2: #{$dark-elevated};
+    --button-text-1: #0a0b0d;
+    --button-text-2: #ffffff;
+    --button-text-3: #{$gold-accent};
+
+    // Brand & Accents
+    --primary: #{$blue-accent};
+    --accent: #{$gold-accent};
+    --hero-gradient: linear-gradient(135deg, #ffffff 0%, #{$blue-accent} 100%);
+    --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    --glass: rgba(18, 20, 24, 0.8);
+}
+
+:root.light {
+    // Backgrounds
+    --bg-1: #{$light-pure};
+    --bg-2: #{$light-surface};
+    --bg-3: #{$light-elevated};
+
+    // Typography
+    --text-1: #0a0b0d;
+    --text-2: #4a5568;
+    --text-3: #718096;
+
+    // Navigation (Cleanroom Light)
+    --nav-bg: rgba(247, 249, 252, 0.9);
+    --nav-text: #4a5568;
+    --nav-hover: #0a0b0d;
+    --nav-active: #{$blue-accent};
+
+    // Buttons (Tech Dark)
+    --button-bg-1: #0a0b0d;
+    --button-bg-2: #edf2f7;
+    --button-text-1: #ffffff;
+    --button-text-2: #0a0b0d;
+    --button-text-3: #{$blue-accent};
+
+    // Brand & Accents
+    --primary: #{$blue-accent};
+    --accent: #{$blue-accent};
+    --hero-gradient: linear-gradient(135deg, #1a365d 0%, #{$blue-accent} 100%);
+    --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    --glass: rgba(255, 255, 255, 0.8);
+}
+body {
+    background-color: var(--bg-3);
+    color: var(--text-1);
+}
