@@ -7,11 +7,16 @@ import { ThemeProvider } from './ThemeContext'
 import InfoCard from '../shared/compoents/InfoCard'
 function App() {
 
-
     return (
         <ThemeProvider>
             <BrowserRouter>
-                <InfoCard />
+                {/* <InfoCard title="jfffffffff" 
+                subtitle="qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq" 
+                description="qasc cwc cwwww cddddddddddddddddddddddddddddddddddddddddddddddddddccccccccccccccccc"
+                
+            
+                /> */}
+                <Home/>
             </BrowserRouter>
         </ThemeProvider>
     )

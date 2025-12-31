@@ -1,79 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
-$gold-accent: #c5a059;  // Electroless Gold Plating
-$blue-accent: #007aff;  // Silicon Photonic Blue
-$wafer-silver: #e2e8f0;
 
-$dark-pure: #0a0b0d;     // Deep Space
-$dark-surface: #121418;  // Tech Slate
-$dark-elevated: #1c1f26; // Circuitry Gray
+$neon-cobalt: #00f2ff;    // Liquid cooling / Laser precision
+$palladium: #d4d4d8;      // Polished metal
+$deep-electric: #0062ff;  // Data flow blue
+$circuit-gold: #e2b857;   // High-conductivity trace gold
 
-$light-pure: #ffffff;
-$light-surface: #f7f9fc; // ISO Class 1 Cleanroom White
-$light-elevated: #edf2f7;
+$dark-obsidian: #050608;  // Pure darkness
+$dark-titanium: #0d0f12;  // Brushed metal surface
+$dark-alloy: #16191d;     // Structural component
+
+$light-cleanroom: #ffffff;
+$light-sterile: #f8fafc;  
+$light-quartz: #f1f5f9;
 
 :root {
-    // Backgrounds
-    --bg-1: #{$dark-pure}; 
-    --bg-2: #{$dark-surface};
-    --bg-3: #{$dark-elevated};
+    // Fonts
+    --font-main: 'Inter', sans-serif;
+    --font-code: 'JetBrains Mono', monospace;
 
-    // Typography
-    --text-1: #f1f3f5;
-    --text-2: #adb5bd;
-    --text-3: #6c757d;
+    // Backgrounds - Using obsidian tones
+    --bg-1: #{$dark-obsidian}; 
+    --bg-2: #{$dark-titanium};
+    --bg-3: #{$dark-alloy};
 
-    // Navigation (Silicon Dark)
-    --nav-bg: rgba(10, 11, 13, 0.85);
-    --nav-text: #adb5bd;
-    --nav-hover: #ffffff;
-    --nav-active: #{$gold-accent};
+    // Typography - Ultra high contrast
+    --text-1: #ffffff;
+    --text-2: #94a3b8; // Muted slate
+    --text-3: #475569; // Dimmed hardware gray
 
-    // Buttons (Precision Gold)
-    --button-bg-1: #{$gold-accent};
-    --button-bg-2: #{$dark-elevated};
-    --button-text-1: #0a0b0d;
+    // Navigation - Blurred Glass Effect
+    --nav-bg: rgba(5, 6, 8, 0.8);
+    --nav-text: #94a3b8;
+    --nav-hover: #{$neon-cobalt};
+    --nav-active: #{$neon-cobalt};
+
+    // Buttons - "Neon glow" style
+    --button-bg-1: #{$neon-cobalt};
+    --button-bg-2: rgba(255, 255, 255, 0.05);
+    --button-text-1: #050608;
     --button-text-2: #ffffff;
-    --button-text-3: #{$gold-accent};
+    --button-text-3: #{$neon-cobalt};
 
     // Brand & Accents
-    --primary: #{$blue-accent};
-    --accent: #{$gold-accent};
-    --hero-gradient: linear-gradient(135deg, #ffffff 0%, #{$blue-accent} 100%);
-    --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    --glass: rgba(18, 20, 24, 0.8);
+    --primary: #{$neon-cobalt};
+    --accent: #{$circuit-gold};
+    
+    // Luxury Gradients (Complex stops for metallic look)
+    --hero-gradient: linear-gradient(165deg, #ffffff 0%, #94a3b8 40%, #{$deep-electric} 100%);
+    --card-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 20px 50px rgba(0, 0, 0, 0.6);
+    --glass: blur(12px) saturate(180%) rgba(13, 15, 18, 0.7);
 }
 
 :root.light {
-    // Backgrounds
-    --bg-1: #{$light-pure};
-    --bg-2: #{$light-surface};
-    --bg-3: #{$light-elevated};
+    // Backgrounds - Clinical Sterile
+    --bg-1: #{$light-cleanroom};
+    --bg-2: #{$light-sterile};
+    --bg-3: #{$light-quartz};
 
-    // Typography
-    --text-1: #0a0b0d;
-    --text-2: #4a5568;
-    --text-3: #718096;
+    // Typography - Depth-focused
+    --text-1: #0f172a;
+    --text-2: #475569;
+    --text-3: #94a3b8;
 
-    // Navigation (Cleanroom Light)
-    --nav-bg: rgba(247, 249, 252, 0.9);
-    --nav-text: #4a5568;
-    --nav-hover: #0a0b0d;
-    --nav-active: #{$blue-accent};
+    // Navigation
+    --nav-bg: rgba(255, 255, 255, 0.8);
+    --nav-text: #475569;
+    --nav-hover: #{$deep-electric};
+    --nav-active: #{$deep-electric};
 
-    // Buttons (Tech Dark)
-    --button-bg-1: #0a0b0d;
-    --button-bg-2: #edf2f7;
+    // Buttons
+    --button-bg-1: #0f172a;
+    --button-bg-2: #f1f5f9;
     --button-text-1: #ffffff;
-    --button-text-2: #0a0b0d;
-    --button-text-3: #{$blue-accent};
+    --button-text-2: #0f172a;
+    --button-text-3: #{$deep-electric};
 
     // Brand & Accents
-    --primary: #{$blue-accent};
-    --accent: #{$blue-accent};
-    --hero-gradient: linear-gradient(135deg, #1a365d 0%, #{$blue-accent} 100%);
-    --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
-    --glass: rgba(255, 255, 255, 0.8);
+    --primary: #{$deep-electric};
+    --accent: #{$deep-electric};
+    
+    --hero-gradient: linear-gradient(135deg, #0f172a 0%, #{$deep-electric} 100%);
+    --card-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 40px rgba(0, 0, 0, 0.05);
+    --glass: blur(12px) saturate(180%) rgba(255, 255, 255, 0.7);
 }
+
 body {
     background-color: var(--bg-3);
     color: var(--text-1);

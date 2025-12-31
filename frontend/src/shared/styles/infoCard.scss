@@ -1,92 +1,132 @@
 @use '../../styles/theme' as *;
 
 .info-card {
-  display: flex;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  border-radius: 16px;
-  background: var(--bg-2);
-  color: var(--text-1);
+    // display: flex;
+    // gap: 1.5rem;
+    // padding: 1.5rem;
+    // border-radius: 16px;
+    // background: var(--bg-2);
+    // color: var(--text-1);
 
-  &__media img {
-    width: 100%;
-    max-width: 160px;
-    border-radius: 12px;
-  }
-
-  &__content {
     display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+    background: var(--bg-2); // This acts as the fallback
+    color: var(--text-1);
+    position: relative; // Required for absolute bg
+    overflow: hidden; // Clips the bg to border-radius
+    z-index: 1;
 
-  &__subtitle {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    opacity: 0.7;
-  }
+    // The Background Layer
+    &__bg {
+        position: absolute;
+        inset: 0; // Cover full card
+        background-size: cover;
+        background-position: center;
+        z-index: -1; // Sit behind content
+        transition: transform 0.6s ease, filter 0.6s ease;
+        opacity: 0.4; // Default transparency for tech look
+        filter: grayscale(100%);
+    }
 
-  &__title {
-    font-size: 1.4rem;
-    font-weight: 600;
-  }
+    &:hover &__bg {
+        transform: scale(1.1);
+        filter: grayscale(0%);
+        opacity: 0.6;
+    }
 
-  &__description {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    opacity: 0.85;
-  }
+    &__media img {
+        width: 100%;
+        max-width: 160px;
+        border-radius: 12px;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    &__subtitle {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        opacity: 0.7;
+        color: var(--text-2);
+    }
+
+    &__title {
+        font-family: var(--font-main);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: -0.04em;
+        background: var(--hero-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.2));
+
+    }
+
+    &__description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        opacity: 0.85;
+        color: var(--text-2);
+    }
 }
+
 .info-card--hero {
-  background: transparent;
-  padding: 0;
-  max-width: 720px;
+    background: transparent;
+    padding: 0;
+    max-width: 720px;
 
-  .info-card__subtitle {
-    font-size: 1rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    opacity: 0.75;
-  }
+    .info-card__subtitle {
+        font-size: 1rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.75;
+    }
 
-  .info-card__title {
-    background-color: var(--hero-gradient);
-    font-size: clamp(2.4rem, 4vw, 3.2rem);
-    font-weight: 700;
-    line-height: 1.15;
-  }
+    .info-card__title {
+        color: var(--hero-gradient);
+        font-size: clamp(2.4rem, 4vw, 3.2rem);
+        font-weight: 700;
+        line-height: 1.15;
+    }
 
-  .info-card__description {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    opacity: 0.85;
-    max-width: 640px;
-  }
+    .info-card__description {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        opacity: 0.85;
+        max-width: 640px;
+    }
 }
 
 .info-card--feature {
-  background: var(--bg-3);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    background: var(--bg-3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 
-  .info-card__media img {
-    max-width: 120px;
-  }
+    .info-card__media img {
+        max-width: 120px;
+    }
 }
+
 .info-card--research {
-  border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 
-  .info-card__title {
-    font-size: 1.2rem;
-  }
+    .info-card__title {
+        font-size: 1.2rem;
+    }
 }
+
 .align-center {
-  text-align: center;
-  flex-direction: column;
-  align-items: center;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .align-right {
-  flex-direction: row-reverse;
-  text-align: right;
+    flex-direction: row-reverse;
+    text-align: right;
 }

@@ -4,14 +4,15 @@ import './hero.scss'
 import wafer from '../../../assets/images/wafer.png'
 function HeroSection() {
   return (
-     <section className="hero">
+    <section className="hero">
 
       <div className="hero__content">
         <InfoCard
           variant="hero"
-          title="Engineering the Foundation of Tomorrow’s Technology"
-          subtitle="High-purity silicon wafers engineered for precision, performance, and scale."
-          description="From advanced semiconductor devices to solar energy and MEMS applications, we manufacture industry-grade silicon wafers that meet the most demanding global standards."
+          title="Advanced Silicon Wafer Manufacturing"
+          subtitle="Engineered for consistency, purity, and performance."
+          description="Supplying industry-grade silicon wafers to semiconductor and technology manufacturers."
+
           cta={
             <div className="hero__actions">
               <button className="btn btn-primary">

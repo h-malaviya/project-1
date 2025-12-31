@@ -1,0 +1,145 @@
+@use '../../../styles/theme' as *;
+
+.about-section {
+  width: 100%;
+  background: var(--bg-1);
+  display: flex;
+  flex-direction: column;
+  padding: 0; 
+  overflow-x: hidden;
+
+  .about-intro {
+    width: 100%;
+    background: transparent;
+    padding: 1.5rem 5%; 
+   
+    box-sizing: border-box;
+
+    .info-card {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      transform: none !important; 
+      cursor: default;
+      display: block;
+      text-align: center;
+
+      &::after { display: none !important; } 
+      
+      &__title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+      }
+      &__description {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px; 
+    margin: 20px auto; 
+    padding: 0 5%;
+    box-sizing: border-box; // Ensures padding doesn't cause overflow
+
+    .info-card {
+      height: 400px; 
+      perspective: 1500px;
+      background: transparent; 
+      border: none;
+      padding: 0;
+      position: relative;
+      cursor: pointer;
+      overflow: visible; 
+
+      &__content, &__media {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        backface-visibility: hidden;
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        background: var(--bg-2);
+        border: 1px solid var(--bg-2);
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        
+        align-items: start;
+        padding: 2rem;
+      }
+
+      &__media {
+        background: transparent;
+        border: none;
+        height: auto;
+        bottom: auto;
+        top: 2rem;
+        img { max-width: 100px; }
+      }
+
+      // The Back Side
+      &__bg {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        transform: rotateY(-180deg);
+        backface-visibility: hidden;
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        background-size: cover;
+        background-position: center;
+        border-radius: 4px;
+        opacity: 1 !important;
+
+        &::after {
+          
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.742);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          
+        }
+      }
+
+    
+      &:hover {
+        .info-card__content, .info-card__media {
+          transform: rotateY(180deg);
+        }
+        .info-card__bg {
+          transform: rotateY(0deg);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .about-section .about-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 60px auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    
+    .about-intro {
+      padding: 60px 5%;
+    }
+    .about-grid {
+      grid-template-columns: 1fr;
+      padding: 0 0px;
+      margin: 40px 40px;
+    }
+  }
+}
